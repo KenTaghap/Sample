@@ -1,15 +1,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // MongoDB Atlas connection string
-    $connectionString = "mongodb+srv://your_username:your_password@your_cluster_url/your_database_name?retryWrites=true&w=majority";
+    $connectionString = "mongodb://kenUser:KenPassword@ac-kvsfcpt-shard-00-00.qrj9egp.mongodb.net:27017,ac-kvsfcpt-shard-00-01.qrj9egp.mongodb.net:27017,ac-kvsfcpt-shard-00-02.qrj9egp.mongodb.net:27017/Sample?ssl=true&replicaSet=atlas-4pn5vh-shard-0&authSource=admin&retryWrites=true&w=majority";
 
     try {
         // Connect to MongoDB Atlas
         $mongoClient = new MongoDB\Client($connectionString);
 
         // Select the database and collection
-        $database = $mongoClient->selectDatabase("your_database_name");
-        $collection = $database->selectCollection("your_collection_name");
+        $database = $mongoClient->selectDatabase("Sample");
+        $collection = $database->selectCollection("Connect");
 
         // Get data from the form
         $field1 = $_POST["field1"];
